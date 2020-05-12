@@ -1,24 +1,18 @@
-# README
+Projet | Eventbrite
+--------------------------------------------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repository contenant le projet du 26ème jour de The Hacking Project
 
-Things you may want to cover:
+Projet de la semaine avec au menu du jour :
+1. Création de l'app
+2. Construction de la base de données (migrations, models et seed)
+3. Implémentation d'un mailer
+4. Mise en production sur Heroku
 
-* Ruby version
+--------------------------------------------
 
-* System dependencies
+Version de Ruby : 2.5.1
+Version de Rails : 5.2.3
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+--------------------------------------------
+Auteur : Maxime CASTILLO
