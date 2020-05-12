@@ -92,5 +92,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
+  # A modifier quand SendGrid aura fini de review mon compte ! En attendant, je fais un mailer en local avec letter_opener.
   config.action_mailer.default_url_options = { :host => 'eventbrite-12052020.herokuapp.com' }
+  # Configuration de l'envoi d'email avec la gem letter_opener pour voir le mail expédié dans le navigateur
+  config.action_mailer.delivery_method = :letter_opener
+  # Possibilité de stopper tout email de l'appli en passant à false
+  config.action_mailer.perform_deliveries = true
+
 end
