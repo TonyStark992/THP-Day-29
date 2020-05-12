@@ -1,13 +1,16 @@
 Projet | Eventbrite
 --------------------------------------------
 
-Repository contenant le projet du 26ème jour de The Hacking Project
+Repository contenant le projet du 27ème jour de The Hacking Project
 
 Projet de la semaine avec au menu du jour :
-1. Création de l'app
-2. Construction de la base de données (migrations, models et seed)
-3. Implémentation d'un mailer
-4. Mise en production sur Heroku
+1. Installation de Devise et branchement au model User
+2. Branchement Bootstrap
+3. Header du site
+4. Page d'accueil du site
+5. Page profil d'un utilisateur
+6. Page de création d'événement
+7. Page d'affichage d'événement
 
 --------------------------------------------
 
