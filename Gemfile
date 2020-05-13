@@ -65,6 +65,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'pry'
 end
 
 gem 'table_print'

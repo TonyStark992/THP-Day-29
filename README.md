@@ -12,6 +12,8 @@ Projet de la semaine avec au menu du jour :
 6. Page de création d'événement
 7. Page d'affichage d'événement
 
+Lien vers le site : https://eventbrite-12052020.herokuapp.com/
+
 --------------------------------------------
 
 Version de Ruby : 2.5.1

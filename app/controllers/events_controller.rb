@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @events = Event.all
   end
@@ -10,6 +12,14 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.new(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: [:description], price: params[:price], location: [:location])
+    if @event.save
+      flash[:success] = "Evénement bien créé !"
+      redirect_to event_path(@event.id)
+    else
+      flash[:danger] = "Veuillez vérifier le formulaire !"
+      render :new
+    end
   end
 
   def edit
