@@ -6,13 +6,23 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @admin = User.find(@event.user_id)
+    @end_date = @event.start_date + @event.duration * 60
   end
 
   def new
   end
 
   def create
-    @event = Event.new(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location])
+    @event = Event.new(
+      start_date: params[:start_date],
+      duration: params[:duration],
+      title: params[:title],
+      description: params[:description],
+      price: params[:price],
+      location: params[:location],
+      user_id: current_user.id)
     if @event.save
       flash[:success] = "Evénement bien créé !"
       redirect_to event_path(@event.id)

@@ -1,2 +1,14 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1>Page de l'événement</h1>
+<br/>
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+        <h4 class="card-title"><%= @event.title %></h4>
+        <p class="card-text">"<%= @event.description %>"</p>
+        <p class="card-text"><%= @event.attendances.count %> participants</p>
+        <p class="card-text">Organisateur : <%= @admin.email %></p>
+        <p class="card-text">Date de début : <%= @event.start_date.strftime("%m/%d/%Y") %></p>
+        <p class="card-text">Date de fin : <%= @end_date.strftime("%m/%d/%Y") %></p>
+        <p class="card-text">Lieu : <%= @event.location %></p>
+        <p class="card-text">Tarif : <%= @event.price %> € / personne</p>
+    </div>
+</div>
