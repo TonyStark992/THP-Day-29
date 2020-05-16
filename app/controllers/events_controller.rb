@@ -36,9 +36,18 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      flash[:success] = "Modifications enregistrés !"
+      redirect_to @event
+    else
+      flash[:danger] = "Veuillez vérifier le formulaire !"
+      render :edit
+    end
   end
 
   def destroy
@@ -46,4 +55,17 @@ class EventsController < ApplicationController
       flash[:success] = "Evénement supprimé !"
       redirect_to events_path
   end
+
+  private
+
+  def event_params
+    params.require(:event).permit(
+      :title,
+      :duration,
+      :description,
+      :price,
+      :start_date,
+      :location)
+  end
+
 end
