@@ -1,5 +1,11 @@
 class AttendancesController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action only: [:index] do |controller|
+    controller.check_if_admin
+  end
+
   def index
+    @event = Event.find(params[:event_id])
   end
 
   def create

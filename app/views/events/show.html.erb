@@ -42,8 +42,9 @@
                 <% end %>
             </div>
         <% end %> 
-    <!-- Lien vers espace admin -->
-      <% end %> 
+        <% else %>
+          <%= link_to "Mon espace événement", event_attendances_path(event_id: @event.id), class:"btn btn-success" %>
+      <% end %>
       <br>
     <%= link_to 'Retour Accueil', events_path, class:"btn btn-primary" %>
 </div>
