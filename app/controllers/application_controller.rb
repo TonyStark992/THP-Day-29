@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  include AttendancesHelper
+  include ApplicationHelper
 end

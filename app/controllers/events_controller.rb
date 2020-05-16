@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action only: [:edit, :update, :destroy] do |controller|
+    controller.check_if_admin
+  end
 
   def index
     @events = Event.all
@@ -39,5 +42,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+      Event.find(params[:id]).destroy
+      flash[:success] = "Evénement supprimé !"
+      redirect_to events_path
   end
 end
