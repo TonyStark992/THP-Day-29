@@ -1,3 +1,5 @@
+require 'pry'
+
 class UserMailer < ApplicationMailer
   default from: 'tony.stark@yopmail.com'
 
@@ -10,6 +12,7 @@ class UserMailer < ApplicationMailer
   def attendance_email(attendance)
     @event = attendance.event
     @user = attendance.user
+    binding.pry
     @admin = User.find(@event.user_id)
     mail(to: @admin.email, subject: "Nouvelle inscription à ton événement !")
   end

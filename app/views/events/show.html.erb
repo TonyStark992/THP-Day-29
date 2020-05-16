@@ -1,6 +1,6 @@
 <h1>Page de l'événement</h1>
 <br/>
-<div class="card" style="width: 25rem;">
+<div class="card" style="width: 50rem;">
     <div class="card-body">
         <h4 class="card-title"><%= @event.title %></h4>
         <p class="card-text">"<%= @event.description %>"</p>
@@ -11,4 +11,39 @@
         <p class="card-text">Lieu : <%= @event.location %></p>
         <p class="card-text">Tarif : <%= @event.price %> € / personne</p>
     </div>
+</div>
+
+<br>
+
+<div>
+    <% if current_user != @admin %>
+        <% if @event.users.include?(current_user) %>
+        <p>Tu es inscrit à cet événement !</p>
+        <% else %>
+            <div>
+                <%= form_tag event_attendances_path(event_id: @event.id) do %>
+                  <article>
+                    <% if flash[:error].present? %>
+                      <div id="error_explanation">
+                        <p><%= flash[:error] %></p>
+                      </div>
+                    <% end %>
+                    <label class="amount">
+                      <span>Tarif pour l'inscription : <%= @event.price %> €</span>
+                    </label>
+                  </article>
+
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Inscription à l'événement"
+                          data-amount="<%= @event.price * 100 %>"
+                          data-currency="eur"
+                          data-locale="auto"></script>
+                <% end %>
+            </div>
+        <% end %> 
+    <!-- Lien vers espace admin -->
+      <% end %> 
+      <br>
+    <%= link_to 'Retour Accueil', events_path, class:"btn btn-primary" %>
 </div>
