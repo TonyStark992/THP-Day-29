@@ -22,4 +22,6 @@ Préférer appeler les fichiers un à un pour avoir le contrôle
 et faire un main.css qui contient le CSS global de l'appli
 */
 
+*= require bootstrap
+*= require modern-business
 *= require main
